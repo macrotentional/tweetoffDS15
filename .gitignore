@@ -1,0 +1,6 @@
+
+# ignore local database stuff:
+
+migrations/
+
+*.db
