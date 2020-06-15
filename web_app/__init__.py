@@ -5,6 +5,7 @@ from web_app.routes.home_routes import home_routes
 from web_app.routes.book_routes import book_routes
 
 DATABASE_URL = "sqlite:///tweetoffds15_development.db" # using relative filepath
+#DATABASE_URL = "sqlite:////Users/martincampbell/Desktop/tweetoffds15/tweetoffds15_development.db"
 
 def create_app():
     app = Flask(__name__)
