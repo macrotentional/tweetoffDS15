@@ -4,7 +4,7 @@ from web_app.models import Music, db, parse_records
 
 music_routes = Blueprint("music_routes", __name__)
 
-@book_routes.route("/music.json")
+@music_routes.route("/music.json")
 def list_music():
     #music = [
     #    {"id": 1, "title": "Music 1"},
@@ -17,7 +17,7 @@ def list_music():
     return jsonify(music)
 
 # SELECT * FROM music
-@book_routes.route("/music")
+@music_routes.route("/music")
 def list_music_for_humans():
     #books = [
     #    {"id": 1, "title": "Music 1"},
@@ -29,7 +29,7 @@ def list_music_for_humans():
     books = parse_records(music_records) # optionally
     return render_template("music.html", message="Here's some music", music=music)
 
-@book_routes.route("/music/new")
+@music_routes.route("/music/new")
 def new_music():
     return render_template("new_music.html")
 
