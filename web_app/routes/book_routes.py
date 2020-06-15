@@ -16,6 +16,7 @@ def list_books():
     books = parse_records(book_records)
     return jsonify(books)
 
+# SELECT * FROM books
 @book_routes.route("/books")
 def list_books_for_humans():
     #books = [
@@ -32,6 +33,7 @@ def list_books_for_humans():
 def new_book():
     return render_template("new_book.html")
 
+# INSERT INTO books ...
 @book_routes.route("/books/create", methods=["POST"])
 def create_book():
     print("FORM DATA:", dict(request.form))
