@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request, render_template #, flash, redirec
 
 from web_app.models import Music, db, parse_records
 
-book_routes = Blueprint("music_routes", __name__)
+music_routes = Blueprint("music_routes", __name__)
 
 @book_routes.route("/music.json")
 def list_music():
