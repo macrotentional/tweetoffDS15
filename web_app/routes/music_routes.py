@@ -38,7 +38,7 @@ def new_music():
 def create_music():
     print("FORM DATA:", dict(request.form))
 
-    new_music = Music(title=request.form["album_title"], artist_id=request.form["artist_name"])
+    new_music = Music(album_title=request.form["album_title"], artist_id=request.form["artist_name"])
     db.session.add(new_music)
     db.session.commit()
 
