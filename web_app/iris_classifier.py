@@ -1,6 +1,5 @@
 import os
 import pickle
-import sklearn
 
 from sklearn.datasets import load_iris
 from sklearn.linear_model import LogisticRegression # for example
@@ -29,7 +28,10 @@ def load_model():
 
 if __name__ == "__main__":
 
-    train_and_save_model()
+    #train_and_save_model()
+
+
+    #exit()
 
     clf = load_model()
     print("CLASSIFIER:", clf)

@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request, render_template #, flash, redirect
+from flask import Blueprint, jsonify, request, render_template, flash, redirect
 
 from web_app.models import Book, db, parse_records
 
@@ -16,7 +16,6 @@ def list_books():
     books = parse_records(book_records)
     return jsonify(books)
 
-# SELECT * FROM books
 @book_routes.route("/books")
 def list_books_for_humans():
     #books = [
@@ -33,7 +32,6 @@ def list_books_for_humans():
 def new_book():
     return render_template("new_book.html")
 
-# INSERT INTO books ...
 @book_routes.route("/books/create", methods=["POST"])
 def create_book():
     print("FORM DATA:", dict(request.form))
@@ -42,9 +40,9 @@ def create_book():
     db.session.add(new_book)
     db.session.commit()
 
-    return jsonify({
-        "message": "BOOK CREATED OK",
-        "book": dict(request.form)
-    })
-    #flash(f"Book '{new_book.title}' created successfully!", "success")
-    #return redirect(f"/books")
+    #return jsonify({
+    #    "message": "BOOK CREATED OK",
+    #    "book": dict(request.form)
+    #})
+    flash(f"Book '{new_book.title}' created successfully!", "success")
+    return redirect("/books")

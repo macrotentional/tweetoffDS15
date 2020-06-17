@@ -1,7 +1,5 @@
-# web_app/routes/twitter_routes.py
-
 from flask import Blueprint, render_template, jsonify
-from web_app.models import db, User, Tweet  # parse_records
+from web_app.models import db, User, Tweet #, parse_records
 from web_app.services.twitter_service import api as twitter_api_client
 from web_app.services.basilica_service import connection as basilica_api_client
 
@@ -14,8 +12,6 @@ def fetch_user(screen_name=None):
     # FETCHING DATA FROM TWITTER API
 
     twitter_user = twitter_api_client.get_user(screen_name)
-    #tweets = twitter_api_client.user_timeline(screen_name, tweet_mode="extended", count=150)
-    # print("STATUS COUNT:", len(tweets))
 
     # STORING TWITTER DATA IN THE DATABASE
 
@@ -25,13 +21,12 @@ def fetch_user(screen_name=None):
     db_user.name = twitter_user.name
     db_user.location = twitter_user.location
     db_user.followers_count = twitter_user.followers_count
-
     db.session.add(db_user)
     db.session.commit()
     #return "OK"
     #breakpoint()
 
-        # FETCH TWEETS
+    # FETCH TWEETS
 
     tweets = twitter_api_client.user_timeline(screen_name, tweet_mode="extended", count=150)
     print("TWEETS COUNT:", len(tweets))
