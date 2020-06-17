@@ -17,6 +17,7 @@ dotenv = "*"
 twitter-service = "*"
 twitter-api-client = "*"
 load-dotenv = "*"
+sklearn = "*"
 
 [requires]
 python_version = "3.7"
