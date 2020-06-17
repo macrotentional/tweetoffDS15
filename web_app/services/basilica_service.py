@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-API_KEY = os.getenv("BASILICA_API_KEY") # use env var
+API_KEY = os.getenv("BASILICA_API_KEY")
 
 # could use a function here to return our connection
 # could use a class

@@ -25,7 +25,6 @@ if __name__ == "__main__":
     print(user.id)
     print(user.screen_name)
     print(user.name)
-    # print(user.followers_count)
 
     tweets = api.user_timeline("elonmusk", tweet_mode="extended")
     print("TWEETS", type(tweets)) #> <class 'tweepy.models.ResultSet'>
@@ -34,13 +33,3 @@ if __name__ == "__main__":
     tweet = tweets[0]
     print(tweet.id)
     print(tweet.full_text)
-
-    #breakpoint()
-
-    #public_tweets = api.home_timeline()
-    #
-    #for tweet in public_tweets:
-    #    print(type(tweet)) #> <class 'tweepy.models.Status'>
-    #    #print(dir(tweet))
-    #    print(tweet.text)
-    #    print("-------------")
