@@ -16,6 +16,7 @@ tweepy = "*"
 dotenv = "*"
 twitter-service = "*"
 twitter-api-client = "*"
+load-dotenv = "*"
 
 [requires]
 python_version = "3.7"

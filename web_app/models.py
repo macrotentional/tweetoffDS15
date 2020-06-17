@@ -5,6 +5,7 @@ db = SQLAlchemy()
 
 migrate = Migrate()
 
+
 class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(128))
@@ -13,6 +14,7 @@ class Book(db.Model):
     def __repr__(self):
         return f"<Book {self.id} {self.title}>"
 
+
 class Music(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     album_title = db.Column(db.String(128))
@@ -20,6 +22,25 @@ class Music(db.Model):
 
     def __repr__(self):
         return f"<Music {self.id} {self.title}>"
+
+
+class User(db.Model):
+    id = db.Column(db.BigInteger, primary_key=True)
+    screen_name = db.Column(db.String(128), nullable=False)
+    name = db.Column(db.String)
+    location = db.Column(db.String)
+    followers_count = db.Column(db.Integer)
+    # latest_tweet_id = db.Column(db.BigInteger)
+
+
+class Tweet(db.Model):
+    id = db.Column(db.BigInteger, primary_key=True)
+    user_id = db.Column(db.BigInteger, db.ForeignKey("user.id"))
+    full_text = db.Column(db.String(500))
+    embedding = db.Column(db.PickleType)
+
+    user = db.relationship("User", backref=db.backref("tweets", lazy=True))
+
 
 def parse_records(database_records):
     """
