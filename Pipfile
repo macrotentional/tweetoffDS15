@@ -16,7 +16,6 @@ tweepy = "*"
 dotenv = "*"
 twitter-service = "*"
 twitter-api-client = "*"
-load-dotenv = "*"
 sklearn = "*"
 
 [requires]
