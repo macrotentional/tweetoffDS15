@@ -1,3 +1,5 @@
+import os
+from dotenv import load_dotenv
 from flask import Flask
 
 from web_app.models import db, migrate
@@ -7,9 +9,10 @@ from web_app.routes.music_routes import music_routes
 from web_app.routes.twitter_routes import twitter_routes
 from web_app.routes.stats_routes import stats_routes
 
+load_dotenv()
 
-DATABASE_URL = "sqlite:///tweetoffds15_development.db"  # using relative filepath
-SECRET_KEY = "todo customize this secret value via env var"
+DATABASE_URL = os.getenv("DATABASE_URL")
+SECRET_KEY = os.getenv("SECRET_KEY", default="super secret")
 # DATABASE_URL = "sqlite:////Users/martincampbell/Desktop/tweetoffds15/tweetoffds15_development.db"
 
 
