@@ -15,7 +15,6 @@ requests = "*"
 tweepy = "*"
 dotenv = "*"
 twitter-service = "*"
-twitter-api-client = "*"
 sklearn = "*"
 
 [requires]
