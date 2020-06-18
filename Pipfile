@@ -13,8 +13,6 @@ basilica = "*"
 python-dotenv = "*"
 requests = "*"
 tweepy = "*"
-dotenv = "*"
-twitter-service = "*"
 sklearn = "*"
 
 [requires]
